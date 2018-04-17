@@ -1,4 +1,4 @@
--- Store procedure
+-- Stored procedure
 BEGIN
   DBMS_OUTPUT.PUT_LINE('HELLO WORLD');
 END;
@@ -28,3 +28,29 @@ BEGIN
    dbms_output.put_line('TIME ELAPSED: ');
    dbms_output.put_line(end_time - start_time || ' milliseconds');
    END;
+   
+   
+ --Functions
+ 
+ CREATE FUNCTION fundMin (x in number, y in number)
+ RETURN number IS
+  z number :=0;
+  BEGIN
+   IF x > y THEN
+   z := y;
+  ELSE
+   z :=x;
+   END IF;
+   RETURN z;
+   
+   END ;
+   
+   BEGIN
+   dbms_output.put_line ('Min 20 - 40: ' || fundMin(20,40));
+   END;
+   
+   -- Llamar la funcion con la tabla dual
+   
+   SELECT fundMin(50,10) AS RESUL FROM DUAL;
+   
+   
